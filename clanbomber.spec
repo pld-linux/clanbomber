@@ -2,7 +2,7 @@ Summary:	ClanBomber, the cool game that uses ClanLib
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib
 Name:		clanbomber
 Version:	1.02a
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Games
 Source0:	http://prdownloads.sourceforge.net/clanbomber/%{name}-%{version}.tar.gz
@@ -49,8 +49,8 @@ CXXFLAGS="%{rpmcflags} -fno-implicit-templates"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir}}
-install -d $RPM_BUILD_ROOT%{_datadir}/games/clanlib
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/games/clanlib
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
