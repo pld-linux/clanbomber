@@ -5,7 +5,7 @@ Version:	1.02a
 Release:	3
 License:	GPL
 Group:		Applications/Games
-Source0:	http://prdownloads.sourceforge.net/clanbomber/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/clanbomber/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch1:		%{name}-CXXFLAGS.patch
@@ -16,10 +16,10 @@ URL:		http://clanbomber.sourceforge.net/
 Requires:	ClanLib >= 0.5.0
 BuildRequires:	ClanLib-devel >= 0.5.0
 BuildRequires:	Hermes-devel
-BuildRequires:	libstdc++-devel
-BuildRequires:	zlib-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libstdc++-devel
+BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
