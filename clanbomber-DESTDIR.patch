@@ -1,5 +1,30 @@
---- clanbomber-1.00/clanbomber/maps/Makefile.am.wiget	Sun Jan  2 03:20:15 2000
-+++ clanbomber-1.00/clanbomber/maps/Makefile.am	Fri Jan  7 21:38:00 2000
+diff -durN clanbomber-1.01.orig/clanbomber/Makefile.am clanbomber-1.01/clanbomber/Makefile.am
+--- clanbomber-1.01.orig/clanbomber/Makefile.am	Sat Apr  1 22:24:25 2000
++++ clanbomber-1.01/clanbomber/Makefile.am	Sun Apr 16 17:23:55 2000
+@@ -8,14 +8,14 @@
+ EXTRA_DIST = Bomb.cpp Bomber.h Bomb.h Bomber.cpp Explosion.cpp Explosion.h Extra.cpp Extra.h Extra_Power.cpp Extra_Power.h Map.cpp Config.h GameObject.h GameObject.cpp ClanBomber.h Debug.h Map.h Extra_Kick.h Extra_Skateboard.h Menu.h Config.cpp Debug.cpp Extra_Kick.cpp Extra_Skateboard.cpp Menu.cpp ClanBomber.cpp Observer.cpp Observer.h GameStatus.cpp GameStatus.h Bomber_Corpse.h Bomber_Corpse.cpp Extra_Glove.cpp Extra_Glove.h Controller.cpp Controller.h Extra_Bomb.h Extra_Bomb.cpp Timer.cpp Timer.h clanbomber.scr Controller_AI.cpp Controller_AI.h PlayerSetup.cpp PlayerSetup.h GameStatus_Team.cpp GameStatus_Team.h Disease.cpp Disease.h Disease_Frozen.cpp Disease_Frozen.h Disease_Stoned.cpp Disease_Stoned.h Extra_Joint.cpp Extra_Joint.h Resources.cpp Resources.h MapTile.cpp MapTile.h MapTile_None.cpp MapTile_None.h MapTile_Ground.cpp MapTile_Ground.h MapTile_Box.cpp MapTile_Box.h MapTile_Wall.cpp MapTile_Wall.h MapSelector.cpp MapSelector.h Extra_Viagra.cpp Extra_Viagra.h Extra_Koks.cpp Extra_Koks.h Disease_PutBomb.cpp Disease_PutBomb.h Corpse_Part.cpp Corpse_Part.h MapEntry.cpp MapEntry.h MapTile_Ice.cpp MapTile_Ice.h Controller_AI_MIC.cpp Controller_AI_MIC.h Credits.cpp Credits.h MapTile_Arrow.cpp MapTile_Arrow.h MapEditor.cpp MapEditor.h Controller_Joystick.cpp Controller_Joystick.h Controller_Keyboard.cpp Controller_Keyboard.h MapTile_Trap.cpp MapTile_Trap.h array.h link.h Disease_Fast.cpp Disease_Fast.h 
+ 
+ install-data-local:
+-	$(mkinstalldirs) @datadir@/clanbomber/
+-	$(INSTALL_DATA) clanbomber.dat @datadir@/clanbomber/clanbomber.dat
+-	$(mkinstalldirs) @datadir@/clanbomber/
+-	$(INSTALL_DATA) clanbomber.scr @datadir@/clanbomber/clanbomber.scr
++	$(mkinstalldirs) $(DESTDIR)@datadir@/clanbomber/
++	$(INSTALL_DATA) clanbomber.dat $(DESTDIR)@datadir@/clanbomber/clanbomber.dat
++	$(mkinstalldirs) $(DESTDIR)@datadir@/clanbomber/
++	$(INSTALL_DATA) clanbomber.scr $(DESTDIR)@datadir@/clanbomber/clanbomber.scr
+ 
+ uninstall-local:
+-	-rm -f @datadir@/clanbomber/clanbomber.dat
+-	-rm -f @datadir@/clanbomber/clanbomber.scr
++	-rm -f $(DESTDIR)@datadir@/clanbomber/clanbomber.dat
++	-rm -f $(DESTDIR)@datadir@/clanbomber/clanbomber.scr
+ 
+ ####### kdevelop will overwrite this part!!! (end)############
+ bin_PROGRAMS = clanbomber
+diff -durN clanbomber-1.01.orig/clanbomber/maps/Makefile.am clanbomber-1.01/clanbomber/maps/Makefile.am
+--- clanbomber-1.01.orig/clanbomber/maps/Makefile.am	Sat Apr  1 22:24:25 2000
++++ clanbomber-1.01/clanbomber/maps/Makefile.am	Sun Apr 16 17:22:46 2000
 @@ -4,103 +4,103 @@
  EXTRA_DIST = Crammed.map Hole_Run.map Obstacle_Race.map Prison_Cells.map Small_Standard.map Tiny_Standard.map Football.map Kitchen.map Whole_Mess.map Redirection.map Bloody_Ring.map Four_Instance.map Ghostbear.map Hard_Work.map Meeting.map Overkill.map Sixty_Nine.map Boiling_Egg.map Bomb_Attack.map Arena.map Big_Block.map Big_Standard.map Blast_Matrix.map Death_Corridor.map Dilemma.map FearCircle.map FearCircle_Remix.map FireWheels.map Huge_Standard.map Juicy_Lucy.map MungoBane.map Snake_Race.map 
  
@@ -200,42 +225,20 @@
 +	-rm -f $(DESTDIR)@datadir@/clanbomber/maps/Snake_Race.map
  
  ####### kdevelop will overwrite this part!!! (end)############
---- clanbomber-1.00/clanbomber/music/Makefile.am.wiget	Sun Jan  2 03:20:15 2000
-+++ clanbomber-1.00/clanbomber/music/Makefile.am	Fri Jan  7 21:21:38 2000
+diff -durN clanbomber-1.01.orig/clanbomber/music/Makefile.am clanbomber-1.01/clanbomber/music/Makefile.am
+--- clanbomber-1.01.orig/clanbomber/music/Makefile.am	Sat Apr  1 22:24:25 2000
++++ clanbomber-1.01/clanbomber/music/Makefile.am	Sun Apr 16 17:23:09 2000
 @@ -4,10 +4,10 @@
  EXTRA_DIST = bud.mod 
  
  install-data-local:
 -	$(mkinstalldirs) @datadir@/clanbomber/
 -	$(INSTALL_DATA) bud.mod @datadir@/clanbomber/bud.mod
-+	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
-+	$(INSTALL_DATA) bud.mod $(DESTDIR)$(datadir)/clanbomber/bud.mod
++	$(mkinstalldirs) $(DESTDIR)@datadir@/clanbomber/
++	$(INSTALL_DATA) bud.mod $(DESTDIR)@datadir@/clanbomber/bud.mod
  
  uninstall-local:
 -	-rm -f @datadir@/clanbomber/bud.mod
-+	-rm -f $(DESTDIR)$(datadir)/clanbomber/bud.mod
++	-rm -f $(DESTDIR)@datadir@/clanbomber/bud.mod
  
  ####### kdevelop will overwrite this part!!! (end)############
---- clanbomber-1.00/clanbomber/Makefile.am.wiget	Sun Jan  2 03:20:15 2000
-+++ clanbomber-1.00/clanbomber/Makefile.am	Fri Jan  7 21:21:38 2000
-@@ -8,14 +8,14 @@
- EXTRA_DIST = Bomb.cpp Bomber.h Bomb.h Bomber.cpp Explosion.cpp Explosion.h Extra.cpp Extra.h Extra_Power.cpp Extra_Power.h Map.cpp Config.h GameObject.h GameObject.cpp ClanBomber.h Debug.h Map.h Extra_Kick.h Extra_Skateboard.h Menu.h Config.cpp Debug.cpp Extra_Kick.cpp Extra_Skateboard.cpp Menu.cpp ClanBomber.cpp Observer.cpp Observer.h GameStatus.cpp GameStatus.h Bomber_Corpse.h Bomber_Corpse.cpp Extra_Glove.cpp Extra_Glove.h Controller.cpp Controller.h Extra_Bomb.h Extra_Bomb.cpp Timer.cpp Timer.h clanbomber.scr Controller_AI.cpp Controller_AI.h PlayerSetup.cpp PlayerSetup.h GameStatus_Team.cpp GameStatus_Team.h Disease.cpp Disease.h Disease_Frozen.cpp Disease_Frozen.h Disease_Stoned.cpp Disease_Stoned.h Extra_Joint.cpp Extra_Joint.h Resources.cpp Resources.h MapTile.cpp MapTile.h MapTile_None.cpp MapTile_None.h MapTile_Ground.cpp MapTile_Ground.h MapTile_Box.cpp MapTile_Box.h MapTile_Wall.cpp MapTile_Wall.h MapSelector.cpp MapSelector.h Extra_Viagra.cpp Extra_Viagra.h Extra_Koks.cpp Extra_Koks.h Disease_Schneemann.cpp Disease_Schneemann.h Disease_PutBomb.cpp Disease_PutBomb.h Corpse_Part.cpp Corpse_Part.h MapEntry.cpp MapEntry.h MapTile_Ice.cpp MapTile_Ice.h Controller_AI_MIC.cpp Controller_AI_MIC.h Credits.cpp Credits.h MapTile_Arrow.cpp MapTile_Arrow.h MapEditor.cpp MapEditor.h Controller_Joystick.cpp Controller_Joystick.h Controller_Keyboard.cpp Controller_Keyboard.h MapTile_Trap.cpp MapTile_Trap.h 
- 
- install-data-local:
--	$(mkinstalldirs) @datadir@/clanbomber/
--	$(INSTALL_DATA) clanbomber.dat @datadir@/clanbomber/clanbomber.dat
--	$(mkinstalldirs) @datadir@/clanbomber/
--	$(INSTALL_DATA) clanbomber.scr @datadir@/clanbomber/clanbomber.scr
-+	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
-+	$(INSTALL_DATA) clanbomber.dat $(DESTDIR)$(datadir)/clanbomber/clanbomber.dat
-+	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
-+	$(INSTALL_DATA) clanbomber.scr $(DESTDIR)$(datadir)/clanbomber/clanbomber.scr
- 
- uninstall-local:
--	-rm -f @datadir@/clanbomber/clanbomber.dat
--	-rm -f @datadir@/clanbomber/clanbomber.scr
-+	-rm -f $(DESTDIR)$(datadir)/clanbomber/clanbomber.dat
-+	-rm -f $(DESTDIR)$(datadir)/clanbomber/clanbomber.scr
- 
- ####### kdevelop will overwrite this part!!! (end)############
- bin_PROGRAMS = clanbomber

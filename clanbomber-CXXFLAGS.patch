@@ -1,11 +1,11 @@
---- clanbomber-0.99/configure.in.wiget	Sun Dec 19 22:46:15 1999
-+++ clanbomber-0.99/configure.in	Mon Dec 27 23:02:16 1999
-@@ -5,9 +5,6 @@
+diff -durN clanbomber-1.01.orig/configure.in clanbomber-1.01/configure.in
+--- clanbomber-1.01.orig/configure.in	Sat Apr  1 19:32:06 2000
++++ clanbomber-1.01/configure.in	Sun Apr 16 17:36:10 2000
+@@ -5,8 +5,6 @@
  
- AM_INIT_AUTOMAKE(clanbomber,0.99)
+ AM_INIT_AUTOMAKE(clanbomber,1.01)
  
--dnl Change this if you need no debugging
--CXXFLAGS="-O3"
+-CXXFLAGS="-O6"
 -
  dnl Checks for programs.
  AC_PROG_CXX
