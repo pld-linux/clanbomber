@@ -2,7 +2,8 @@
 Name=ClanBomber
 Comment=ClanBomber Game
 Comment[pl]=Gra ClanBomber
-Exec=/usr/X11R6/bin/xterm -e clanbomber
+Icon=clanbomber.png
+Exec=clanbomber
 Terminal=0
 Type=Application
 # vi: encoding=utf-8
