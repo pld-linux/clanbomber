@@ -47,6 +47,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_datadir}/applnk/Games
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applnk/Games
 
 gzip -9nf AUTHORS ChangeLog QUOTES README TODO
