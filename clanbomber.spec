@@ -53,7 +53,7 @@ CXXFLAGS="%{rpmcflags} -fno-implicit-templates"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir}} \
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}} \
 	$RPM_BUILD_ROOT%{_datadir}/games/clanlib
 
 %{__make} install \
