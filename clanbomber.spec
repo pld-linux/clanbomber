@@ -1,7 +1,7 @@
 Summary:	ClanBomber, the cool game that uses ClanLib.
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib.
 Name:		clanbomber 
-Version:	0.98c
+Version:	0.99
 Release:	1
 Copyright:	GPL
 Group:		X11/Games
@@ -9,12 +9,14 @@ Group(pl):	X11/Gry
 Source0:	http://www.clanbomber.de/files/%{name}-%{version}.tar.gz
 Source1:	clanbomber.desktop
 Patch0:		clanbomber-paths.patch
+Patch1:		clanbomber-CXXFLAGS.patch
+Patch2:		clanbomber-DESTDIR.patch
 URL:		http://www.clanbomber.de/
 Requires:	ClanLib >= 0.2.2
 BuildRequires:	ClanLib-devel >= 0.2.2
 BuildRequires:	Hermes-devel
 BuildRequires:	XFree86-devel
-BuildRequires:	svgalib-devel
+#BuildRequires:	svgalib-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
@@ -35,17 +37,22 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
+aclocal
+automake
+autoconf
 CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates"
 LDFLAGS="-s"
 export CXXFLAGS LDFLAGS
-./configure --prefix=%{_prefix}
+%configure 
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install prefix=$RPM_BUILD_ROOT%{_prefix}
+make install DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_datadir}/applnk/Games
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applnk/Games
