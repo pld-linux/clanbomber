@@ -10,6 +10,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch1:		%{name}-CXXFLAGS.patch
 Patch2:		%{name}-DESTDIR.patch
+Patch3:		%{name}-DESTDIR2.patch
 URL:		http://clanbomber.sourceforge.net/
 Requires:	ClanLib >= 0.5.0
 BuildRequires:	ClanLib-devel >= 0.5.0
@@ -34,6 +35,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 %setup -q
 %patch1 -p1
 %patch2 -p1
+%patch3
 
 %build
 rm -f missing
@@ -42,12 +44,13 @@ autoconf
 automake -a -c -f
 # note: RTTI is needed --- clanbomber uses exceptions!
 CXXFLAGS="%{rpmcflags} -fno-implicit-templates"
-%configure
+%configure --datadir=/usr/share/games
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT%{_datadir}/games/clanlib
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -63,6 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/clanbomber
-%{_datadir}/clanbomber
+%{_datadir}/games/clanbomber
 %{_applnkdir}/Games/Arcade/clanbomber.desktop
 %{_pixmapsdir}/*
