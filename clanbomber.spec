@@ -1,6 +1,6 @@
 Summary:	ClanBomber, the cool game that uses ClanLib
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib
-Name:		clanbomber 
+Name:		clanbomber
 Version:	1.02a
 Release:	1
 License:	GPL
@@ -42,7 +42,7 @@ autoconf
 automake -a -c
 # note: RTTI is needed --- clanbomber uses exceptions!
 CXXFLAGS="%{rpmcflags} -fno-implicit-templates"
-%configure 
+%configure
 %{__make}
 
 %install
