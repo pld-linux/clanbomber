@@ -1,7 +1,7 @@
 Summary:	ClanBomber, the cool game that uses ClanLib.
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib.
 Name:		clanbomber 
-Version:	0.99
+Version:	1.00
 Release:	1
 Copyright:	GPL
 Group:		X11/Games
@@ -38,7 +38,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+%patch2 -p1 -b .wiget
 
 %build
 aclocal
