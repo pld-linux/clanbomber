@@ -1,0 +1,24 @@
+--- clanbomber-1.02a/clanbomber/ClanBomber.cpp~	Sun Nov 10 23:14:09 2002
++++ clanbomber-1.02a/clanbomber/ClanBomber.cpp	Sun Nov 10 23:14:09 2002
+@@ -101,10 +101,10 @@
+ 			map_path = "/usr/local/share/clanbomber/maps";
+ 			if (!opendir(map_path))
+ 			{
+-				map_path = "/usr/share/clanbomber/maps";
++				map_path = "/usr/share/games/clanbomber/maps";
+ 				if (!opendir(map_path))
+ 				{
+-					map_path = "/usr/share/clanbomber/maps";
++					map_path = "/usr/share/games/clanbomber/maps";
+ 				}
+ 			}
+ 		}
+@@ -606,7 +606,7 @@
+ 		{
+ 			try
+ 			{
+-				wav = CL_Streamed_MikModSample::create("/usr/share/clanbomber/bud.mod", NULL, true);
++				wav = CL_Streamed_MikModSample::create("/usr/share/games/clanbomber/bud.mod", NULL, true);
+ 				ses = new CL_SoundBuffer_Session( wav->prepare() );
+ 				ses->set_volume(1.2f);
+ 			}
