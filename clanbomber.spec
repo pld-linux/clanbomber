@@ -59,7 +59,7 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Games/Arcade,%{_pixmapsdir}} \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Games/Arcade
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -70,5 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog QUOTES README TODO
 %attr(755,root,root) %{_bindir}/clanbomber
 %{_datadir}/games/clanbomber
-%{_applnkdir}/Games/Arcade/clanbomber.desktop
+%{_desktopdir}/clanbomber.desktop
 %{_pixmapsdir}/*
