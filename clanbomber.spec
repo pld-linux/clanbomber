@@ -44,7 +44,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 aclocal
 automake
 autoconf
-CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-implicit-templates"
 LDFLAGS="-s"
 export CXXFLAGS LDFLAGS
 %configure 
