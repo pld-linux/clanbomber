@@ -1,0 +1,3 @@
+- 0.99
+- using DESTDIR install method
+- fix parsing CXXFLAGS
