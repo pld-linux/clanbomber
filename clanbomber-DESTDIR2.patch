@@ -1,0 +1,98 @@
+--- clanbomber/ClanBomber.cpp
++++ clanbomber/ClanBomber.cpp
+@@ -79,6 +79,7 @@
+ 
+ 	        if (argc > 1  &&  strcmp (argv[1], "-datafile") == 0) {
+ 		        CL_DatafileCompiler::write("clanbomber.scr", "clanbomber.dat");
++			deinit_modules();
+ 			return 0;
+ 	        }
+ 
+@@ -204,6 +205,7 @@
+ 	    	 			case MENU_EXIT:
+      					menu->scroll_out();
+      					delete menu;
++					deinit_modules();
+      					return 0;
+ 	     			break;
+     		 			case MENU_PLAYER_SETUP:
+@@ -416,6 +418,7 @@
+      {
+ 		cout << endl << "Exception caught from ClanLib:" << endl;
+ 		cout << err.message << endl;
++		deinit_modules();
+ 		return 255;
+      }
+ }
+--- clanbomber/Resources.cpp
++++ clanbomber/Resources.cpp
+@@ -101,25 +101,25 @@
+ 
+ void Resources::init()
+ {
+-	try
+-	{
++ 	try
++ 	{
+ 		res = new CL_ResourceManager("clanbomber.dat", true);
+-	}
+-	catch (CL_Error err)
+-	{
+-	    	try
+-		{
+-			res = new CL_ResourceManager(
+-				"/usr/share/clanbomber/clanbomber.dat",
+-				true);
+-		}
+-		catch (CL_Error err)
+-		{
+-			res = new CL_ResourceManager(
+-				"/usr/local/share/clanbomber/clanbomber.dat",
+-				true);
+-		}
+-	}
++	} catch (CL_Error err) { try {
++		res = new CL_ResourceManager(
++			"/usr/share/games/clanbomber/clanbomber.dat", true);
++	} catch (CL_Error err) { try {
++		res = new CL_ResourceManager(
++			"/usr/local/share/clanbomber/clanbomber.dat", true);
++	} catch (CL_Error err) { try {
++		res = new CL_ResourceManager("clanbomber.scr", false);
++	} catch (CL_Error err) { try {
++		res = new CL_ResourceManager(
++			"/usr/share/games/clanbomber/clanbomber.scr", false);
++	} catch (CL_Error err) {
++		res = new CL_ResourceManager(
++			"/usr/local/share/clanbomber/clanbomber.scr", false);
++	}}}}}
++
+ }
+ 
+ void Resources::load_all()
+--- clanbomber/Makefile.am~	Sun Apr 21 16:10:47 2002
++++ clanbomber/Makefile.am	Sun Apr 21 16:17:46 2002
+@@ -6,21 +6,15 @@
+ 
+ EXTRA_DIST = Bomb.cpp Bomber.h Bomb.h Bomber.cpp Explosion.cpp Explosion.h Extra.cpp Extra.h Extra_Power.cpp Extra_Power.h Map.cpp Config.h GameObject.h GameObject.cpp ClanBomber.h Debug.h Map.h Extra_Kick.h Extra_Skateboard.h Menu.h Config.cpp Debug.cpp Extra_Kick.cpp Extra_Skateboard.cpp Menu.cpp ClanBomber.cpp Observer.cpp Observer.h GameStatus.cpp GameStatus.h Bomber_Corpse.h Bomber_Corpse.cpp Extra_Glove.cpp Extra_Glove.h Controller.cpp Controller.h Extra_Bomb.h Extra_Bomb.cpp Timer.cpp Timer.h clanbomber.scr Controller_AI.cpp Controller_AI.h PlayerSetup.cpp PlayerSetup.h GameStatus_Team.cpp GameStatus_Team.h Disease.cpp Disease.h Disease_Frozen.cpp Disease_Frozen.h Disease_Stoned.cpp Disease_Stoned.h Extra_Joint.cpp Extra_Joint.h Resources.cpp Resources.h MapTile.cpp MapTile.h MapTile_None.cpp MapTile_None.h MapTile_Ground.cpp MapTile_Ground.h MapTile_Box.cpp MapTile_Box.h MapTile_Wall.cpp MapTile_Wall.h MapSelector.cpp MapSelector.h Extra_Viagra.cpp Extra_Viagra.h Extra_Koks.cpp Extra_Koks.h Disease_PutBomb.cpp Disease_PutBomb.h Corpse_Part.cpp Corpse_Part.h MapEntry.cpp MapEntry.h MapTile_Ice.cpp MapTile_Ice.h Controller_AI_MIC.cpp Controller_AI_MIC.h Credits.cpp Credits.h MapTile_Arrow.cpp MapTile_Arrow.h MapEditor.cpp MapEditor.h Controller_Joystick.cpp Controller_Joystick.h Controller_Keyboard.cpp Controller_Keyboard.h MapTile_Trap.cpp MapTile_Trap.h array.h link.h Disease_Fast.cpp Disease_Fast.h 
+ 
+-install-data-local: clanbomber.dat
+-	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
+-	$(INSTALL_DATA) clanbomber.dat $(DESTDIR)$(datadir)/clanbomber/clanbomber.dat
++install-data-local:
+ 	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
+ 	$(INSTALL_DATA) clanbomber.scr $(DESTDIR)$(datadir)/clanbomber/clanbomber.scr
++	cp -r pics wavs $(DESTDIR)$(datadir)/clanbomber
+ 
+ uninstall-local:
+ 	-rm -f $(DESTDIR)$(datadir)/clanbomber/clanbomber.dat
+ 	-rm -f $(DESTDIR)$(datadir)/clanbomber/clanbomber.scr
+ 
+-clanbomber.dat: clanbomber.scr pics/*.pcx pics/*.tga wavs/*.wav maps/*.map music/bud.mod
+-	@./clanbomber -datafile
+-
+-all-local: clanbomber.dat
+-
+ distclean-local:
+ 	rm -f clanbomber.dat clanbomber.cfg
+ 
