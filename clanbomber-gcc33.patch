@@ -1,0 +1,64 @@
+--- clanbomber-1.02a/clanbomber/ClanBomber.h~	2004-09-25 09:30:27.000000000 +0200
++++ clanbomber-1.02a/clanbomber/ClanBomber.h	2004-09-25 09:30:27.000000000 +0200
+@@ -102,7 +102,7 @@
+ 
+ class ClanBomberApplication : public CL_ClanApplication
+ {
+-friend Debug;
++friend class Debug;
+ protected:
+ 
+ 	void run_intro();
+--- clanbomber-1.02a/clanbomber/Controller_AI.h~	2004-09-25 09:40:27.000000000 +0200
++++ clanbomber-1.02a/clanbomber/Controller_AI.h	2004-09-25 09:40:27.000000000 +0200
+@@ -100,9 +100,9 @@
+ 
+ class Controller_AI : public Controller
+ {
+-friend Job_Go;
+-friend Job_PutBomb;
+-friend Job_Wait;
++friend class Job_Go;
++friend class Job_PutBomb;
++friend class Job_Wait;
+ public:
+ 	Controller_AI ();
+ 	virtual ~Controller_AI () {};
+--- clanbomber-1.02a/clanbomber/Menu.h~	2004-09-25 10:45:59.000000000 +0200
++++ clanbomber-1.02a/clanbomber/Menu.h	2004-09-25 10:45:59.000000000 +0200
+@@ -29,7 +29,7 @@
+ 
+ class MenuItem
+ {
+- friend Menu;
++ friend class Menu;
+  public:
+   MenuItem( const CL_String _text, int _id, int _parent );
+   virtual ~MenuItem() {};
+@@ -60,7 +60,7 @@
+ 
+ class MenuItem_Value : public MenuItem
+ {
+-friend Menu;
++friend class Menu;
+ public:
+ 	MenuItem_Value( const CL_String _text, int _id, int _parent, int _min, int _max, int _value );
+ 	virtual ~MenuItem_Value() {};
+@@ -85,7 +85,7 @@
+ 
+ class MenuItem_String : public MenuItem
+ {
+-friend Menu;
++friend class Menu;
+ public:
+ 	MenuItem_String( const CL_String _text, int _id, int _parent, CL_String _string);
+ 	virtual ~MenuItem_String() {};
+@@ -101,7 +101,7 @@
+ 
+ class MenuItem_StringList : public MenuItem
+ {
+-friend Menu;
++friend class Menu;
+ public:
+ 	MenuItem_StringList( const CL_String _text, int _id, int _parent, CL_Array<CL_String> _string_list, int _value );
+ 	virtual ~MenuItem_StringList() {};

@@ -1,0 +1,19 @@
+--- clanbomber-1.02a/clanbomber/Controller_AI.cpp.orig	2004-09-25 10:01:35.000000000 +0200
++++ clanbomber-1.02a/clanbomber/Controller_AI.cpp	2004-09-25 10:14:14.000000000 +0200
+@@ -19,6 +19,7 @@
+ 
+ //#define WITH_DEBUG
+ 
++#include <ClanLib/Core/System/cl_assert.h>
+ #include "ClanBomber.h"
+ #include "Controller_AI.h"
+ 
+@@ -312,7 +313,7 @@
+ 
+ void Controller_AI::do_job()
+ {
+-	assert(jobs.get_num_items() > 0);
++	cl_assert(jobs.get_num_items() > 0);
+ 	jobs[0]->execute();
+ }
+ 
