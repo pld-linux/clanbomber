@@ -37,9 +37,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 aclocal
 automake
 autoconf
-CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates" # note: RTTI is needed --- clanbomber uses exceptions!
-LDFLAGS="-s"
-export CXXFLAGS LDFLAGS
+CXXFLAGS="%{rpmcflags} -fno-implicit-templates" # note: RTTI is needed --- clanbomber uses exceptions!
 %configure 
 %{__make}
 
