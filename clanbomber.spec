@@ -1,28 +1,22 @@
 Summary:	ClanBomber, the cool game that uses ClanLib.
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib.
 Name:		clanbomber 
-Version:	1.00
+Version:	1.01
 Release:	1
 Copyright:	GPL
-Group:		X11/Games
-Group(pl):	X11/Gry
+Group:		Games
+Group(pl):	Gry
 Source0:	http://www.clanbomber.de/files/%{name}-%{version}.tar.gz
 Source1:	clanbomber.desktop
-Patch0:		clanbomber-paths.patch
 Patch1:		clanbomber-CXXFLAGS.patch
 Patch2:		clanbomber-DESTDIR.patch
 URL:		http://www.clanbomber.de/
-Requires:	ClanLib >= 0.2.2
-BuildRequires:	ClanLib-devel >= 0.2.2
+Requires:	ClanLib >= 0.4.3
+BuildRequires:	ClanLib-devel >= 0.4.3
 BuildRequires:	Hermes-devel
-BuildRequires:	XFree86-devel
-#BuildRequires:	svgalib-devel
 BuildRequires:	libstdc++-devel
-BuildRequires:	libpng-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define 	_prefix 	/usr/X11R6
 
 %description
 ClanBomber is very nice and playable Bomberman/Dynablaster clone. 
@@ -36,15 +30,14 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
-%patch2 -p1 -b .wiget
+%patch2 -p1
 
 %build
 aclocal
 automake
 autoconf
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-implicit-templates"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates" # note: RTTI is needed --- clanbomber uses exceptions!
 LDFLAGS="-s"
 export CXXFLAGS LDFLAGS
 %configure 
