@@ -19,14 +19,14 @@ BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ClanBomber is very nice and playable Bomberman/Dynablaster clone. It has
-multiplayer support (8 players), but not yet network support. You must have
-try it! :-)
+ClanBomber is very nice and playable Bomberman/Dynablaster clone. It
+has multiplayer support (8 players), but not yet network support. You
+must have try it! :-)
 
 %description -l pl
 ClanBomber to bardzo fajna i wci±gaj±ca gierka, zbli¿ona do
-Bombermana/Dynablastera. Mo¿na graæ w kilku (max. 8) graczy, ale niestety
-nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
+Bombermana/Dynablastera. Mo¿na graæ w kilku (max. 8) graczy, ale
+niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 
 %prep
 %setup -q
