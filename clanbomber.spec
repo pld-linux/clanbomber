@@ -6,7 +6,8 @@ Release:	1
 Copyright:	GPL
 Group:		X11/Games
 Group(pl):	X11/Gry
-Source:		http://www.fischlustig.de/clanbomber/%{name}-%{version}.tar.gz
+Source0:	http://www.fischlustig.de/clanbomber/%{name}-%{version}.tar.gz
+Source1:	clanbomber.desktop
 Patch0:		clanbomber-paths.patch
 Patch1:		clanbomber-DESTDIR.patch
 URL:		http://www.fischlustig.de/clanbomber/
@@ -46,6 +47,8 @@ make
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/applnk/Games
+
 gzip -9nf AUTHORS ChangeLog QUOTES README TODO
 
 %clean
@@ -57,3 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) %{_bindir}/clanbomber
 %{_datadir}/clanbomber
+%{_datadir}/applnk/Games/clanbomber.desktop
