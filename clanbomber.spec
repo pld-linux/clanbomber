@@ -2,7 +2,7 @@ Summary:	ClanBomber, the cool game that uses ClanLib
 Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib
 Name:		clanbomber
 Version:	1.02a
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Games
 Source0:	http://prdownloads.sourceforge.net/clanbomber/%{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ Source2:	%{name}.png
 Patch1:		%{name}-CXXFLAGS.patch
 Patch2:		%{name}-DESTDIR.patch
 Patch3:		%{name}-DESTDIR2.patch
+Patch4:		%{name}-hardcoded_paths.patch
 URL:		http://clanbomber.sourceforge.net/
 Requires:	ClanLib >= 0.5.0
 BuildRequires:	ClanLib-devel >= 0.5.0
@@ -35,7 +36,8 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 %setup -q
 %patch1 -p1
 %patch2 -p1
-%patch3
+%patch3 -p0
+%patch4 -p1
 
 %build
 rm -f missing
