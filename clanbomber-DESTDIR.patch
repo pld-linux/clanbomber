@@ -1,0 +1,102 @@
+diff -urN clanbomber-0.98/clanbomber/Makefile.in clanbomber-0.98.new/clanbomber/Makefile.in
+--- clanbomber-0.98/clanbomber/Makefile.in	Wed Aug 18 21:52:28 1999
++++ clanbomber-0.98.new/clanbomber/Makefile.in	Sat Sep 18 18:01:54 1999
+@@ -433,10 +433,10 @@
+ 
+ 
+ install-data-local:
+-	$(mkinstalldirs) @datadir@/clanbomber/
+-	$(INSTALL_DATA) clanbomber.dat @datadir@/clanbomber/clanbomber.dat
+-	$(mkinstalldirs) @datadir@/clanbomber/
+-	$(INSTALL_DATA) clanbomber.scr @datadir@/clanbomber/clanbomber.scr
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
++	$(INSTALL_DATA) clanbomber.dat $(DESTDIR)$(datadir)/clanbomber/clanbomber.dat
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
++	$(INSTALL_DATA) clanbomber.scr $(DESTDIR)$(datadir)/clanbomber/clanbomber.scr
+ 
+ uninstall-local:
+ 	-rm -f @datadir@/clanbomber/clanbomber.dat
+diff -urN clanbomber-0.98/clanbomber/maps/Makefile.in clanbomber-0.98.new/clanbomber/maps/Makefile.in
+--- clanbomber-0.98/clanbomber/maps/Makefile.in	Wed Aug 18 21:52:28 1999
++++ clanbomber-0.98.new/clanbomber/maps/Makefile.in	Sat Sep 18 17:58:38 1999
+@@ -170,36 +170,36 @@
+ 
+ 
+ install-data-local:
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Big_Block.map @datadir@/clanbomber/levels/Big_Block.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Big_Standard.map @datadir@/clanbomber/levels/Big_Standard.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Crammed.map @datadir@/clanbomber/levels/Crammed.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Hole_Run.map @datadir@/clanbomber/levels/Hole_Run.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Obstacle_Race.map @datadir@/clanbomber/levels/Obstacle_Race.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Prison_Cells.map @datadir@/clanbomber/levels/Prison_Cells.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Small_Standard.map @datadir@/clanbomber/levels/Small_Standard.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Tiny_Standard.map @datadir@/clanbomber/levels/Tiny_Standard.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Arena.map @datadir@/clanbomber/levels/Arena.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Football.map @datadir@/clanbomber/levels/Football.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Kitchen.map @datadir@/clanbomber/levels/Kitchen.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Whole_Mess.map @datadir@/clanbomber/levels/Whole_Mess.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Redirection.map @datadir@/clanbomber/levels/Redirection.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Bloody_Ring.map @datadir@/clanbomber/levels/Bloody_Ring.map
+-	$(mkinstalldirs) @datadir@/clanbomber/levels/
+-	$(INSTALL_DATA) Four_Instance.map @datadir@/clanbomber/levels/Four_Instance.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Big_Block.map $(DESTDIR)$(datadir)/clanbomber/levels/Big_Block.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Big_Standard.map $(DESTDIR)$(datadir)/clanbomber/levels/Big_Standard.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Crammed.map $(DESTDIR)$(datadir)/clanbomber/levels/Crammed.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Hole_Run.map $(DESTDIR)$(datadir)/clanbomber/levels/Hole_Run.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Obstacle_Race.map $(DESTDIR)$(datadir)/clanbomber/levels/Obstacle_Race.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Prison_Cells.map $(DESTDIR)$(datadir)/clanbomber/levels/Prison_Cells.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Small_Standard.map $(DESTDIR)$(datadir)/clanbomber/levels/Small_Standard.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Tiny_Standard.map $(DESTDIR)$(datadir)/clanbomber/levels/Tiny_Standard.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Arena.map $(DESTDIR)$(datadir)/clanbomber/levels/Arena.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Football.map $(DESTDIR)$(datadir)/clanbomber/levels/Football.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Kitchen.map $(DESTDIR)$(datadir)/clanbomber/levels/Kitchen.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Whole_Mess.map $(DESTDIR)$(datadir)/clanbomber/levels/Whole_Mess.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Redirection.map $(DESTDIR)$(datadir)/clanbomber/levels/Redirection.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Bloody_Ring.map $(DESTDIR)$(datadir)/clanbomber/levels/Bloody_Ring.map
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/levels/
++	$(INSTALL_DATA) Four_Instance.map $(DESTDIR)$(datadir)/clanbomber/levels/Four_Instance.map
+ 
+ uninstall-local:
+ 	-rm -f @datadir@/clanbomber/levels/Big_Block.map
+diff -urN clanbomber-0.98/clanbomber/music/Makefile.in clanbomber-0.98.new/clanbomber/music/Makefile.in
+--- clanbomber-0.98/clanbomber/music/Makefile.in	Wed Aug 18 21:52:28 1999
++++ clanbomber-0.98.new/clanbomber/music/Makefile.in	Sat Sep 18 17:59:04 1999
+@@ -170,8 +170,8 @@
+ 
+ 
+ install-data-local:
+-	$(mkinstalldirs) @datadir@/clanbomber/
+-	$(INSTALL_DATA) bud.mod @datadir@/clanbomber/bud.mod
++	$(mkinstalldirs) $(DESTDIR)$(datadir)/clanbomber/
++	$(INSTALL_DATA) bud.mod $(DESTDIR)$(datadir)/clanbomber/bud.mod
+ 
+ uninstall-local:
+ 	-rm -f @datadir@/clanbomber/bud.mod
