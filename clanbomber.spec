@@ -4,18 +4,21 @@ Name:		clanbomber
 Version:	1.01
 Release:	1
 License:	GPL
-Group:		Games
-Group(pl):	Gry
+Group:		Applications/Games
+Group(de):	Applikationen/Spiele
+Group(pl):	Aplikacje/Gry
 Source0:	http://www.clanbomber.de/files/%{name}-%{version}.tar.gz
-Source1:	clanbomber.desktop
-Patch1:		clanbomber-CXXFLAGS.patch
-Patch2:		clanbomber-DESTDIR.patch
+Source1:	%{name}.desktop
+Patch1:		%{name}-CXXFLAGS.patch
+Patch2:		%{name}-DESTDIR.patch
 URL:		http://www.clanbomber.de/
 Requires:	ClanLib >= 0.4.3
 BuildRequires:	ClanLib-devel >= 0.4.3
 BuildRequires:	Hermes-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	zlib-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,7 +38,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 
 %build
 aclocal
-automake
+automake -a -c
 autoconf
 CXXFLAGS="%{rpmcflags} -fno-implicit-templates" # note: RTTI is needed --- clanbomber uses exceptions!
 %configure 
