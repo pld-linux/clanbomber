@@ -39,7 +39,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 rm -f missing
 aclocal
 autoconf
-automake -a -c
+automake -a -c -f
 # note: RTTI is needed --- clanbomber uses exceptions!
 CXXFLAGS="%{rpmcflags} -fno-implicit-templates"
 %configure
