@@ -39,7 +39,7 @@ niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
 %patch1 -p1
 
 %build
-CXXFLAGS="$RPM_OPT_FLAGS -fno-rtti -fno-implicit-templates"
+CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates"
 LDFLAGS="-s"
 export CXXFLAGS LDFLAGS
 %configure
