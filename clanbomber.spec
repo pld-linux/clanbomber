@@ -41,7 +41,7 @@ CXXFLAGS="$RPM_OPT_FLAGS -fno-implicit-templates" # note: RTTI is needed --- cla
 LDFLAGS="-s"
 export CXXFLAGS LDFLAGS
 %configure 
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
