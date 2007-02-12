@@ -1,5 +1,5 @@
 Summary:	ClanBomber, the cool game that uses ClanLib
-Summary(pl.UTF-8):   ClanBomber, super gierka wykorzystująca ClanLib
+Summary(pl.UTF-8):	ClanBomber, super gierka wykorzystująca ClanLib
 Name:		clanbomber
 Version:	1.02a
 Release:	5
