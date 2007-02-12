@@ -1,5 +1,5 @@
 Summary:	ClanBomber, the cool game that uses ClanLib
-Summary(pl):	ClanBomber, super gierka wykorzystuj±ca ClanLib
+Summary(pl.UTF-8):   ClanBomber, super gierka wykorzystujÄ…ca ClanLib
 Name:		clanbomber
 Version:	1.02a
 Release:	5
@@ -30,10 +30,10 @@ ClanBomber is very nice and playable Bomberman/Dynablaster clone. It
 has multiplayer support (8 players), but not yet network support. You
 must have try it! :-)
 
-%description -l pl
-ClanBomber to bardzo fajna i wci±gaj±ca gierka, zbli¿ona do
-Bombermana/Dynablastera. Mo¿na graæ w kilku (max. 8) graczy, ale
-niestety nie poprzez sieæ (jeszcze!). Koniecznie musisz j± wypróbowaæ!
+%description -l pl.UTF-8
+ClanBomber to bardzo fajna i wciÄ…gajÄ…ca gierka, zbliÅ¼ona do
+Bombermana/Dynablastera. MoÅ¼na graÄ‡ w kilku (max. 8) graczy, ale
+niestety nie poprzez sieÄ‡ (jeszcze!). Koniecznie musisz jÄ… wyprÃ³bowaÄ‡!
 
 %prep
 %setup -q
